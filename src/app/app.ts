@@ -15,8 +15,12 @@ export class App {
   // protected readonly title = signal('angular-app');
   name = "test";
   age = 30;
+  color = 'green';
   education = "B.Tech";
   count: number = 0;
+  inputValue: string = '';
+  providedEmail: string = '';
+
   handleClick() {
     console.log("Button clicked");
   }
@@ -33,8 +37,21 @@ export class App {
     this.count = 0;
   }
 
-  handleOnChange(event: Event){
+  handleOnChange(event: Event) {
     console.log((event.target as HTMLInputElement).value);
+    this.inputValue = (event.target as HTMLInputElement).value;
   }
 
+  getEmail(val: string) {
+    this.providedEmail = val;
+  }
+
+
+  /// Iterate over items 
+
+  arr = ["sameer", "ali", "sana", "sara", "sami", "samiya",];
+
+  getValue(item: string) {
+    console.log(item);
+  }
 }

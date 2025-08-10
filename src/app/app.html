@@ -12,4 +12,38 @@
 <button (click)="handleReset()">Reset</button>
 <button (click)="handleDecrement()">Decrement</button>
 
+<div>{{inputValue}}</div>
 <input type="text" (input)="handleOnChange($event)" name="user">
+
+<input type="text" value="{{education}}" #emailInput>
+<button (click)="getEmail(emailInput.value)">get EMail</button>
+<div>{{providedEmail}}</div>
+
+
+
+<!-- @if(false){
+<p>Condition is true</p>
+} @else if(true){
+<p>Condition is false</p>
+} -->
+
+
+@switch (color) {
+@case('red'){
+<p style="background-color: red;">Color is red</p>
+}
+@case ('green') {
+<p style="background-color: green;">Color is green</p>
+}
+@case ('blue') {
+<p>Color is blue</p>
+}
+@default {
+<p>Color is not red, green, or blue</p>
+}
+}
+
+@for (item of arr; track item ; let i = $index) {
+  <!-- <p>{{item}}</p> -->
+   <button (click)="getValue(item)">{{i + 1}} {{item}}</button>
+}
