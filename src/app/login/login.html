@@ -1,1 +1,43 @@
 <p>login works!</p>
+<div *ngIf="show">ngIf Directive</div>
+
+<!-- ngfor directive  -->
+<ul>
+    <li *ngFor="let x of students">
+        {{x}}
+    </li>
+</ul>
+
+<div *ngFor="let item of complexObj">
+    <div>{{item.name}}</div>
+</div>
+
+
+<!-- nf if and else -->
+
+<!-- <div *ngIf="login  ; else elseBlock">
+    <div style="background-color: yellow;">Login</div>
+</div> -->
+
+<!-- <ng-template #elseBlock>
+    <div style="background-color: aquamarine;">Log out</div>
+</ng-template>
+
+<div *ngIf="block==0">
+    <div>this is block 0</div>
+</div>
+<div *ngIf="block == 1">
+    <div>this is block 1</div>
+</div> -->
+
+<div [ngSwitch]="color">
+    <div *ngSwitchCase="'red'">
+        this is case red
+    </div>
+    <div *ngSwitchCase="'blue'">
+        this is case blue
+    </div>
+    <div *ngSwitchDefault>
+        Unknown color
+    </div>
+</div>

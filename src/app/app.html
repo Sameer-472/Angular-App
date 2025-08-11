@@ -44,6 +44,50 @@
 }
 
 @for (item of arr; track item ; let i = $index) {
-  <!-- <p>{{item}}</p> -->
-   <button (click)="getValue(item)">{{i + 1}} {{item}}</button>
+<!-- <p>{{item}}</p> -->
+<button (click)="getValue(item)">{{i + 1}} {{item}}</button>
 }
+
+<div>{{countSignal()}}</div>
+<button (click)="countSignal.set(200)">Changed Count signal</button>
+
+@if(displayHeading){
+<div>hello this is display heading</div>
+}
+
+<div>For loop contextual </div>
+@for (user of users; track $index; let i = $index; let f= $first; let l = $last) {
+<!-- <div>This is our {{$index}} {{user}}</div> -->
+<div>{{$first}}</div>
+<div>This is our {{i}} {{user}}</div>
+@if($first || $last){
+<div style="background-color: rebeccapurple;">This is out first element</div>
+}
+@if ($even ||$odd) {
+<div>this is out even and odd result</div>
+}
+<div>total items is {{$count}}</div>
+}
+@empty {
+<div>No record found</div>
+}
+
+<!-- Two way binding in Angular -->
+<input [(ngModel)]="studentName" type="text" name="studentName" id="">
+
+<div>Here is the student Name: {{studentName}}</div>
+
+<!-- ################################ TODO TASK ####################################  -->
+
+<div>
+  <input type="text" placeholder="Enter your task" [(ngModel)]="task" name="task">;
+  <button (click)="handleAdd()">Add Task</button>
+</div>
+
+
+<!-- dynamic styling  -->
+ <div [style.backgroundColor]="red">This is text red</div>
+
+
+ <!-- directive  -->
+  <!-- refer to login.html template  -->
