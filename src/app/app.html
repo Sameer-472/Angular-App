@@ -1,10 +1,10 @@
-<h1>Sameer here</h1>
+<!-- <h1>Sameer here</h1>
 <div>{{name}}</div>
-<div>{{age}}</div>
+<div>{{age}}</div> -->
 
-<login>this is login</login>
-<app-sign-up> hello </app-sign-up>
-<app-profile> hello </app-profile>
+
+<!-- <app-sign-up> hello </app-sign-up> -->
+<!-- <app-profile> hello </app-profile>
 <button (click)="handleClick()">Click Me</button>
 
 <div>{{count}}</div>
@@ -17,7 +17,7 @@
 
 <input type="text" value="{{education}}" #emailInput>
 <button (click)="getEmail(emailInput.value)">get EMail</button>
-<div>{{providedEmail}}</div>
+<div>{{providedEmail}}</div> -->
 
 
 
@@ -28,7 +28,7 @@
 } -->
 
 
-@switch (color) {
+<!-- @switch (color) {
 @case('red'){
 <p style="background-color: red;">Color is red</p>
 }
@@ -41,11 +41,11 @@
 @default {
 <p>Color is not red, green, or blue</p>
 }
-}
+} -->
 
-@for (item of arr; track item ; let i = $index) {
+<!-- @for (item of arr; track item ; let i = $index) { -->
 <!-- <p>{{item}}</p> -->
-<button (click)="getValue(item)">{{i + 1}} {{item}}</button>
+<!-- <button (click)="getValue(item)">{{i + 1}} {{item}}</button>
 }
 
 <div>{{countSignal()}}</div>
@@ -53,12 +53,12 @@
 
 @if(displayHeading){
 <div>hello this is display heading</div>
-}
+} -->
 
-<div>For loop contextual </div>
-@for (user of users; track $index; let i = $index; let f= $first; let l = $last) {
+<!-- <div>For loop contextual </div>
+@for (user of users; track $index; let i = $index; let f= $first; let l = $last) { -->
 <!-- <div>This is our {{$index}} {{user}}</div> -->
-<div>{{$first}}</div>
+<!-- <div>{{$first}}</div>
 <div>This is our {{i}} {{user}}</div>
 @if($first || $last){
 <div style="background-color: rebeccapurple;">This is out first element</div>
@@ -70,24 +70,31 @@
 }
 @empty {
 <div>No record found</div>
-}
+} -->
 
 <!-- Two way binding in Angular -->
-<input [(ngModel)]="studentName" type="text" name="studentName" id="">
+<!-- <input [(ngModel)]="studentName" type="text" name="studentName" id=""> -->
 
-<div>Here is the student Name: {{studentName}}</div>
+<!-- <div>Here is the student Name: {{studentName | lowercase}}</div> -->
 
 <!-- ################################ TODO TASK ####################################  -->
 
-<div>
+<!-- <div>
   <input type="text" placeholder="Enter your task" [(ngModel)]="task" name="task">;
   <button (click)="handleAdd()">Add Task</button>
-</div>
+</div> -->
 
 
 <!-- dynamic styling  -->
- <div [style.backgroundColor]="red">This is text red</div>
+<!-- <div [style.backgroundColor]="red">This is text red</div> -->
 
 
- <!-- directive  -->
-  <!-- refer to login.html template  -->
+<div class="">
+  <a routerLink="/login">Login Page</a>
+  <a routerLink="/sign-up">Sign Up Page</a>
+</div>
+
+<app-parent ></app-parent>
+<router-outlet />
+<!-- directive  -->
+<!-- refer to login.html template  -->

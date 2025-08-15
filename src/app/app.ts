@@ -1,14 +1,16 @@
 import { Component, signal, effect, computed } from '@angular/core';
-import { RouterOutlet } from '@angular/router';
+import { RouterLink, RouterOutlet } from '@angular/router';
 import { Login } from './login/login';
 import { SignUp } from './sign-up/sign-up';
 import { Profile } from './profile/profile';
 import { FormsModule } from '@angular/forms';
-import { NgIf } from '@angular/common';
+import { LowerCasePipe, NgIf, UpperCasePipe } from '@angular/common';
+import { Parent } from "./parent/parent";
+
 
 @Component({
   selector: 'app-root',
-  imports: [Login, SignUp, Profile , FormsModule],
+  imports: [Login, Profile, FormsModule, RouterLink, RouterOutlet, Parent],
   templateUrl: './app.html',
   styleUrl: './app.css'
 })
