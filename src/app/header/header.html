@@ -1,0 +1,10 @@
+<div>
+    <Ul>
+        <li class="header-list">
+            <a routerLink="/" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">Home</a>
+            <a [routerLink]="['/about' , {name: 'Sameer Khan'}]" routerLinkActive="active">About</a>
+            <a routerLink="/contact-us" routerLinkActive="active">Contact Us</a>
+            <a routerLink="/menu" routerLinkActive="active">Menu</a>
+        </li>
+    </Ul>
+</div>

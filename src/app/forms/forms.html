@@ -3,4 +3,19 @@
 <form [formGroup]="myForm" (ngSubmit)="onSubmit()">
     <label for="">Username</label>
     <input type="text" formControlName="username" id="">
+    <span *ngIf="name?.hasError('required')">Name is required</span>
+    <label for="">Password</label>
+    <input type="password" formControlName="password" id="">
+    <button type="submit">Submit</button>
+    <button (click)="setValues()">Set Values</button>
+
+    
+    
+</form>
+<!-- form grouping  -->
+
+<form action="">
+    <input type="text" placeholder="Enter name">
+    <br>
+    <input type="text" >
 </form>

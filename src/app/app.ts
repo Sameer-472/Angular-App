@@ -1,21 +1,22 @@
-import { Component, signal, effect, computed } from '@angular/core';
-import { RouterLink, RouterOutlet } from '@angular/router';
+import { Component, signal, effect, computed, OnInit, Query } from '@angular/core';
+import { ActivatedRoute, Route, Router, RouterLink, RouterOutlet } from '@angular/router';
 import { Login } from './login/login';
 import { SignUp } from './sign-up/sign-up';
 import { Profile } from './profile/profile';
 import { FormsModule } from '@angular/forms';
 import { LowerCasePipe, NgIf, UpperCasePipe } from '@angular/common';
 import { Parent } from "./parent/parent";
+import { Header } from './header/header';
 
 
 @Component({
   selector: 'app-root',
-  imports: [Login, Profile, FormsModule, RouterLink, RouterOutlet, Parent],
+  imports: [Login, Profile, FormsModule, RouterLink, RouterOutlet, Parent, Header],
   templateUrl: './app.html',
   styleUrl: './app.css'
 })
 
-export class App {
+export class App implements OnInit {
   // protected readonly title = signal('angular-app');
   name = "test";
   age = 30;
@@ -75,7 +76,7 @@ export class App {
   // effect is a function that allows you to run side effects in response to changes in signals.
   // It automatically tracks the signals used within its body and re-runs whenever any of those signals change.
 
-  constructor() {
+  constructor(private route: Router) {
     effect(() => {
       console.log("Count signal changed: ", this.countSignal())
       console.log("Computed signal changed: ", this.computedSignal())
@@ -83,6 +84,11 @@ export class App {
         this.displayHeading = true;
       }
     });
+  }
+
+  ngOnInit(): void {
+    // let name = this.route.snapshot.paramMap.get('name');
+    // console.log("dtaa coming from param", name)
   }
 
   // for loop contextual variables 
@@ -105,14 +111,14 @@ export class App {
 
 
   // Todo task here 
-  task= "";
-  taskList: {id: string , task: string}[] = [];
+  task = "";
+  taskList: { id: string, task: string }[] = [];
 
-  handleAdd(){
-    this.taskList.push({id: this.task , task: this.task})
+  handleAdd() {
+    this.taskList.push({ id: this.task, task: this.task })
   }
 
-  red= "red";
+  red = "red";
 
   // directives in angular 
   // directive is a class that add additional behavior in angular 
@@ -122,5 +128,8 @@ export class App {
   // Structural directive 
   // Attribute Directive 
   show = false;
+
+  navigateToAbout() {
+    this.route.navigate(['about'] , {queryParams: {name: 'sameer'}})
+  }
 }
- 

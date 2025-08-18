@@ -1,0 +1,16 @@
+.header-list {
+    display: flex;
+    justify-content: space-around;
+    color: brown;
+    background-color: burlywood;
+    padding: 10px 0px;
+}
+
+.header-list a {
+    list-style-type: none;
+    text-decoration: none;
+}
+
+.active {
+    background-color: red;
+}

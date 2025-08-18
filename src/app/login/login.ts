@@ -1,5 +1,6 @@
 import { NgFor, NgIf, NgSwitch, NgSwitchCase, NgSwitchDefault } from '@angular/common';
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
   selector: 'login',
@@ -7,7 +8,7 @@ import { Component } from '@angular/core';
   templateUrl: './login.html',
   styleUrl: './login.css'
 })
-export class Login {
+export class Login implements OnInit {
   show = true;
 
   students = ['sameer', 'peter', 'john']
@@ -30,4 +31,14 @@ export class Login {
   login = false;
   block = 1;
   color = 'blue';
+
+  constructor(private route: ActivatedRoute){
+
+  }
+
+  ngOnInit(): void {
+      this.route.queryParams.subscribe(params => {
+        console.log(params)
+      })
+  }
 }

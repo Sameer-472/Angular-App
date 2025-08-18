@@ -89,12 +89,19 @@
 <!-- <div [style.backgroundColor]="red">This is text red</div> -->
 
 
+<app-header/>
+
+
 <div class="">
   <a routerLink="/login">Login Page</a>
   <a routerLink="/sign-up">Sign Up Page</a>
 </div>
 
+<button (click)="navigateToAbout()">Go to About page</button>
+
 <app-parent ></app-parent>
-<router-outlet />
+<router-outlet >
+
+</router-outlet>
 <!-- directive  -->
 <!-- refer to login.html template  -->
