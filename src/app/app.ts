@@ -11,7 +11,7 @@ import { Header } from './header/header';
 
 @Component({
   selector: 'app-root',
-  imports: [Login, Profile, FormsModule, RouterLink, RouterOutlet, Parent, Header],
+  imports: [FormsModule, RouterLink, RouterOutlet, Parent, Header],
   templateUrl: './app.html',
   styleUrl: './app.css'
 })
