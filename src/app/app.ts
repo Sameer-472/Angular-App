@@ -7,11 +7,13 @@ import { FormsModule } from '@angular/forms';
 import { LowerCasePipe, NgIf, UpperCasePipe } from '@angular/common';
 import { Parent } from "./parent/parent";
 import { Header } from './header/header';
+import { LifeCycle } from './life-cycle/life-cycle';
+import { ProductService } from './services/product-service';
 
 
 @Component({
   selector: 'app-root',
-  imports: [FormsModule, RouterLink, RouterOutlet, Parent, Header],
+  imports: [FormsModule, RouterLink, RouterOutlet, Parent, Header  , LifeCycle],
   templateUrl: './app.html',
   styleUrl: './app.css'
 })
@@ -76,7 +78,7 @@ export class App implements OnInit {
   // effect is a function that allows you to run side effects in response to changes in signals.
   // It automatically tracks the signals used within its body and re-runs whenever any of those signals change.
 
-  constructor(private route: Router) {
+  constructor(private route: Router , private productService: ProductService) {
     effect(() => {
       console.log("Count signal changed: ", this.countSignal())
       console.log("Computed signal changed: ", this.computedSignal())
@@ -85,10 +87,15 @@ export class App implements OnInit {
       }
     });
   }
+  products: any
 
   ngOnInit(): void {
     // let name = this.route.snapshot.paramMap.get('name');
     // console.log("dtaa coming from param", name)
+    this.productService.getProductList().subscribe((data: any)=> {
+      console.log("data is ....." , data.products)
+      this.products = data.products
+    })
   }
 
   // for loop contextual variables 

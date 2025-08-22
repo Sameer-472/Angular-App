@@ -89,7 +89,7 @@
 <!-- <div [style.backgroundColor]="red">This is text red</div> -->
 
 
-<app-header/>
+<app-header />
 
 
 <div class="">
@@ -99,8 +99,22 @@
 
 <button (click)="navigateToAbout()">Go to About page</button>
 
-<app-parent ></app-parent>
-<router-outlet >
+<app-parent></app-parent>
+
+@if (products.length > 0) {
+@for (item of products; track item.id) {
+<div>{{item.title}}</div>
+}
+}
+@else {
+  <div>
+    Loading ...
+  </div>
+}
+
+<button (click)="handleIncrement()">Count {{count}}</button>
+<app-life-cycle [count]="count"></app-life-cycle>
+<router-outlet>
 
 </router-outlet>
 <!-- directive  -->
